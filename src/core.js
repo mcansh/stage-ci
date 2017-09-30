@@ -22,8 +22,8 @@ if (!GITHUB_TOKEN && !GITLAB_TOKEN) throw new Error('GITHUB_TOKEN and/or GITLAB_
 if (!GITHUB_WEBHOOK_SECRET && !GITLAB_WEBHOOK_SECRET) throw new Error('GITHUB_WEBHOOK_SECRET and/or GITLAB_WEBHOOK_SECRET must be defined in environment. Create one at https://github.com/{OWNERNAME}/{REPONAME}/settings/hooks or https://gitlab.com/{OWNERNAME}/{REPONAME}/settings/integration (swap in the path to your repo)');
 if (!ZEIT_API_TOKEN) throw new Error('ZEIT_API_TOKEN must be defined in environment. Create one at https://zeit.co/account/tokens');
 
-const now = (cmd='') => {
-  const nowBin = path.resolve('./node_modules/now/build/bin/now');
+const now = (cmd = '') => {
+  const nowBin = path.resolve('./node_modules/.bin/now');
   return `${nowBin} ${cmd} --token ${ZEIT_API_TOKEN}`;
 };
 
